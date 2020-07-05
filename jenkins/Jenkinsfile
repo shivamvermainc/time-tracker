@@ -1,8 +1,19 @@
 pipeline {
-agent any
+	agent any
 	stages {
 		stage ('clean') {
 			steps {
+				script {
+					if (env.BRANCH_NAME == 'master') {
+						if (currentBuild.rawBuild.project.displayName != "${displayNameService}") {
+							currentBuild.rawBuild.project.description = "${displayNameService}"
+							currentBuild.rawBuild.project.setDisplayName("${diplaNameService}")
+						}
+					}
+					else {
+						echo "this not master branch so Name change is not required"
+					}
+				}
 				sh 'mvn clean'
 			}
 		}
