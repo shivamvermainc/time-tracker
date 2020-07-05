@@ -8,7 +8,7 @@ pipeline {
 					if (env.BRANCH_NAME == 'master') {
 						if (currentBuild.rawBuild.project.displayName != "${displayNameService}") {
 							currentBuild.rawBuild.project.description = "${displayNameService}"
-							currentBuild.rawBuild.project.setDisplayName("${diplaNameService}")
+							currentBuild.rawBuild.project.setDisplayName("${diplayNameService}")
 						}
 					}
 					else {
